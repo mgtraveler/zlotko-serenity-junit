@@ -1,10 +1,10 @@
-package net.skyscanner.pages.widgets.search.impl;
+package net.skyscanner.pages.widgets.impl.search;
 
 import lombok.Getter;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.skyscanner.pages.widgets.CommonWidgetImpl;
+import net.skyscanner.pages.widgets.impl.AbstractAnyWidgetImpl;
 import net.skyscanner.pages.widgets.search.SearchFlightsWidget;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ import java.util.List;
 import static net.skyscanner.utils.WebDriverUtil.waitUntilElementsArePresent;
 
 @Getter
-public class SearchFlightsWidgetImpl extends CommonWidgetImpl implements SearchFlightsWidget {
+public class SearchFlightsWidgetImpl extends AbstractAnyWidgetImpl implements SearchFlightsWidget {
 
     @FindBy(id = "origin-fsc-search")
     private WebElementFacade fromOriginInput;
@@ -45,6 +45,6 @@ public class SearchFlightsWidgetImpl extends CommonWidgetImpl implements SearchF
                 .stream()
                 .filter(element -> element.getText().contains(text))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException(String.format("No suggestion with '%s' value", text)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("No suggestion containing '%s' text", text)));
     }
 }
