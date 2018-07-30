@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({"classpath:base.properties", "classpath:serenity.properties"})
-public interface Configuration extends Config {
+public interface PropsController extends Config {
 
     @Key("webdriver.driver")
     public String browser();
@@ -16,7 +16,7 @@ public interface Configuration extends Config {
     public long timeoutImplicitelyWait();
 
     @Key("webdriver.wait.for.timeout")
-    public long timeoutExplicitelyWait();
+    public long timeoutExplicitlyWait();
 
     @Key("serenity.timeout")
     public long serenityTimeout();

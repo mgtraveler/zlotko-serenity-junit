@@ -28,7 +28,7 @@ public final class WebDriverUtil {
 
     public static FluentWait<WebDriver> fluentWait() {
         return new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofMillis(PROPS.timeoutExplicitelyWait()))
+                .withTimeout(Duration.ofMillis(PROPS.timeoutExplicitlyWait()))
                 .pollingEvery(Duration.ofMillis(PROPS.pollingWait()))
                 .ignoring(TimeoutException.class);
     }

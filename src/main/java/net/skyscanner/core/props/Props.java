@@ -4,7 +4,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class Props {
 
-    public static final Configuration PROPS = ConfigFactory.create(Configuration.class, System.getProperties());
+    public static final PropsController PROPS = ConfigFactory.create(PropsController.class, System.getProperties());
 
     private Props() {
     }
